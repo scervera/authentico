@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+  <!-- <div class="containter-fluid"> -->
+        
+            <%= image_tag ("rails_not_snails.png") %>   
+            <!-- <a class="navbar-brand" href="/">Authentico</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+        <div class="collapse navbar-collapse ps-4" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+                <!-- Display contextual menu items -->
+                <% if current_user.is_a?(User) %>
+                    <%# if current_user.role == "admin" || current_user.role == "manager" %>
+                    <li class="nav-item">
+                        <%= link_to "Public Content", root_path, class: "nav-link" %>
+                    </li>
+                    <li class="nav-item">
+                        <%= link_to "Private Content", restricted_path, class: "nav-link" %>
+                    </li>
+                    <%# else %>
+                <% end %>
+                
+                <!-- Login Items -->
+                <li class="nav-item">
+                    <% if current_user.is_a?(User) %>
+                    <%= link_to "Log Out", destroy_user_session_path, class: "nav-link" %>
+                    <% else %>
+                    <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+                    <!-- Display name of current_user -->
+        <% if user_signed_in? %>
+            <span class="navbar-text me-4">
+            Welcome, <%= current_user.email %>
+            </span>
+        <% end %>
+    <!-- </div> -->
+</nav>
