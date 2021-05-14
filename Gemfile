@@ -54,3 +54,10 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
+# scervera added gems below
+
+# Devise authentication - https://github.com/heartcombo/devise
+gem 'devise' 
+
