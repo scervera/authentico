@@ -13,10 +13,10 @@
                 <% if current_user.is_a?(User) %>
                     <%# if current_user.role == "admin" || current_user.role == "manager" %>
                     <li class="nav-item">
-                        <%= link_to "Public Content", root_path, class: "nav-link" %>
+                        <%= link_to "Public Content", home_index_path, class: "nav-link #{ active_class(home_index_path) }" %>
                     </li>
-                    <li class="nav-item">
-                        <%= link_to "Private Content", restricted_path, class: "nav-link" %>
+                    <li class="nav-item ">
+                        <%= link_to "Private Content", restricted_path, class: "nav-link #{ active_class(restricted_path) }" %>
                     </li>
                     <%# else %>
                 <% end %>
